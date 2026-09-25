@@ -1,4 +1,4 @@
-# OPD-GRPO Core Project
+# HPOD
 
 This repository contains the core implementation of Retain OPD, Reverse OPD,
 GRPO, adaptive Reverse OPD weighting, and gradient coordination. Model weights,
