@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opd-grpo-core"
+version = "0.1.0"
+description = "Minimal OPD, Reverse OPD, GRPO, and adaptive gradient coordination core"
+requires-python = ">=3.9"
+dependencies = ["torch>=2.1"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

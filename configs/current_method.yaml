@@ -1,0 +1,48 @@
+# This file documents the active method extracted from the parent project.
+strict_on_policy:
+  retain_batch_size: 8
+  forget_batch_size: 8
+  rollout_reuse: false
+  optimizer_steps_per_iteration: 1
+
+opd:
+  topk: 16
+  student_temperature: 1.0
+  teacher_temperature: 1.0
+  topk_normalize: false
+  reward_weight_mode: student_p
+  sample_mean_reduction: true
+  retain_weight: 1.0
+
+adaptive_reverse_opd:
+  method: progress_grad_balance
+  ema_beta: 0.9
+  progress_alpha: 1.0
+  epsilon: 1.0e-8
+
+grpo:
+  group_size: 8
+  clip_range: 0.2
+  advantage_epsilon: 1.0e-6
+  policy_epochs: 1
+  policy_micro_batch_size: 1
+  reference_kl_enabled: true
+  reference_kl_mode: sampled
+  reference_kl_beta: 0.02
+  reward:
+    method: unlearning_quality_with_format_validity
+    unlearning_quality_range: [1, 5]
+    invalid_reward: 0.0
+
+coordination:
+  method: behavior_constrained_projection
+  fixed_grpo_weight: null
+  auxinash_enabled: false
+
+optimizer:
+  name: AdamW
+  learning_rate: 3.0e-5
+  betas: [0.9, 0.999]
+  eps: 1.0e-8
+  weight_decay: 0.0
+  max_grad_norm: 1.0
